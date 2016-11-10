@@ -21,6 +21,7 @@ class Aaa {
         map.put(2, "d");
         map.put(1, "e");
 
+
         map.get(3);
         map.get(5);
         map.get(1);
@@ -59,8 +60,8 @@ class Aaa {
     }
 
     private static void printList(List<Integer> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        for (Integer aList : list) {
+            System.out.println(aList);
         }
     }
 }
