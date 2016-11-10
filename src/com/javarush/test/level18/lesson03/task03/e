@@ -1,0 +1,33 @@
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+        FileInputStream fis = new FileInputStream(bfr.readLine());
+        Map<Integer,Integer> map = new HashMap<Integer, Integer>();
+        while (fis.available() > 0){
+            int data = fis.read();
+            if(!map.containsKey(data))
+                map.put(data,1);
+            else map.put(data, map.get(data) + 1);
+        }
+        int max = 0;
+
+        Iterator<Map.Entry<Integer,Integer>> itr = map.entrySet().iterator();
+        while (itr.hasNext()){
+            Map.Entry<Integer,Integer> pair = itr.next();
+            if (max < pair.getValue()){
+                max = pair.getValue();
+            }
+        }
+
+        itr = map.entrySet().iterator();
+        //Выводим все самые встерчающиеся байты
+        while (itr.hasNext()){
+            Map.Entry<Integer,Integer> pair = itr.next();
+            if(pair.getValue().equals(max)){
+                System.out.print(pair.getKey() + " ");
+            }
+        }
+        bfr.close();
+        fis.close();
+    }
+}
